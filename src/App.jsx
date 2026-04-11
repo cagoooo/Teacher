@@ -23,7 +23,7 @@ const PrivateRoute = ({ children }) => {
 function App() {
     return (
         <AuthProvider>
-            <BrowserRouter>
+            <BrowserRouter basename="/Teacher">
                 <Routes>
                     <Route path="/login" element={<Login />} />
 
