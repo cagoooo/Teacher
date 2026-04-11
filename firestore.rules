@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 教師資料
+    match /teachers/{teacherId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null 
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+    
+    // 請假單
+    match /leaveRecords/{recordId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.teacherId is string
+        && request.resource.data.leaveType is string;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+    
+    // 代課紀錄
+    match /substitutions/{subId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.substituteTeacherId is string
+        && request.resource.data.originalTeacherId is string;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+  }
+}

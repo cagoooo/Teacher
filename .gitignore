@@ -1,0 +1,34 @@
+# 環境變數（機密資訊，絕不上傳）
+.env
+.env.local
+.env.*.local
+
+# Node.js 相依套件
+node_modules/
+
+# 建置產物
+dist/
+dist-ssr/
+
+# Firebase 快取與除錯
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# 編輯器設定
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 系統檔案
+.DS_Store
+Thumbs.db
+
+# 本機開發紀錄（非機密但不需版控）
+SESSION_PROGRESS.md
+FUTURE_ROADMAP.md
